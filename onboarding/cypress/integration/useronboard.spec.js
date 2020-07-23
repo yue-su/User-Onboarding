@@ -53,3 +53,28 @@ describe("create a new user with legitimate data", () => {
     cy.contains("michael.wong@abc.com")
   })
 })
+
+describe("create a new user with illigitimate data", () => {
+  it("can display error when inputs are too short", () => {
+    cy.get('input[name="first_name"]').type("Co")
+    cy.contains("First name must be at least 3 characters")
+    cy.get('input[name="last_name"]').type("W")
+    cy.contains("Last name must be at least 2 characters")
+    cy.get('input[name="email"]').type("f")
+    cy.contains("Email must be valid")
+    cy.get('input[name="password"]').type("111")
+    cy.contains("Must be at least 3 characters")
+
+    cy.contains("Submit").should("be.disabled")
+  })
+})
+
+describe("Cancel button should clear the form", () => {
+  it("can clear the form", () => {
+    cy.contains("Cancel").click()
+    cy.get('input[name="first_name"]').should("have.value", "")
+    cy.get('input[name="last_name"]').should("have.value", "")
+    cy.get('input[name="email"]').should("have.value", "")
+    cy.get('input[name="password"]').should("have.value", "")
+  })
+})
