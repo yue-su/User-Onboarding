@@ -7,6 +7,12 @@ const StyledUserCard = styled.div`
   display: flex;
   margin: 1rem;
   background-color: #f2f7f5;
+  padding: 2rem;
+
+  &:hover {
+    background-color: #faae2b;
+    color: #f2f7f5;
+  }
 `
 
 const UserCard = (props) => {
