@@ -3,10 +3,10 @@ import styled from "styled-components"
 
 const StyledUserCard = styled.div`
   text-align: center;
-  background-color: #f2f7f5;
   width: 500px;
   display: flex;
   margin: 1rem;
+  background-color: #f2f7f5;
 `
 
 const UserCard = (props) => {
@@ -16,11 +16,7 @@ const UserCard = (props) => {
     <StyledUserCard className="card">
       <div className="card-image">
         <figure className="image is-128x128">
-          <img
-            src={user.avatar}
-            alt="Placeholder image"
-            className="is-rounded"
-          />
+          <img src={user.avatar} alt="Placeholder" className="is-rounded" />
         </figure>
       </div>
       <div className="card-content">
