@@ -14,6 +14,7 @@ const StyledApp = styled.div`
 
   h1 {
     padding: 2rem;
+    text-transform: uppercase;
   }
 
   .form {

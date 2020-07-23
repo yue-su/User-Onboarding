@@ -13,6 +13,9 @@ const StyledUserCard = styled.div`
   &:hover {
     background-color: #faae2b;
     color: #f2f7f5;
+    transform: translate(0, -5px);
+    box-shadow: 3px 5px #004669;
+    transition-duration: 500ms;
   }
 `
 
