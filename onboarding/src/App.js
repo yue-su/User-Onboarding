@@ -108,6 +108,17 @@ function App() {
     setFormErrors(initialFormErrors)
   }
 
+  const postUser = (user) => {
+    axios
+      .post(URL, user)
+      .then((res) => {
+        alert(`Post is success as ${res.data.last_name}`)
+      })
+      .catch((err) => {
+        debugger
+      })
+  }
+
   useEffect(() => {
     getUsers()
   }, [])
@@ -137,7 +148,7 @@ function App() {
       </div>
       <div className="section">
         {users.map((item) => {
-          return <UserCard user={item} key={item.id} />
+          return <UserCard user={item} key={item.id} postUser={postUser} />
         })}
       </div>
     </StyledApp>

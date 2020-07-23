@@ -5,6 +5,8 @@ const StyledUserCard = styled.div`
   text-align: center;
   width: 500px;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   margin: 1rem;
   background-color: #f2f7f5;
   padding: 2rem;
@@ -20,7 +22,12 @@ const StyledUserCard = styled.div`
 `
 
 const UserCard = (props) => {
-  const { user } = props
+  const { user, postUser } = props
+
+  const clickHandler = (event) => {
+    event.preventDefault()
+    postUser(user)
+  }
 
   return (
     <StyledUserCard className="card">
@@ -35,6 +42,9 @@ const UserCard = (props) => {
         </p>
         <p className="subtitle is-6">{user.email}</p>
       </div>
+      <button className="button" onClick={clickHandler}>
+        Post
+      </button>
     </StyledUserCard>
   )
 }

@@ -13,7 +13,7 @@ const formSchema = yup.object().shape({
 
   last_name: yup
     .string()
-    .min(3, "Last name must be at least 3 characters")
+    .min(2, "Last name must be at least 2 characters")
     .required("Last name is Required"),
 
   password: yup
