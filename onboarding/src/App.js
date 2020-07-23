@@ -92,6 +92,7 @@ function App() {
   }
 
   const submit = () => {
+
     const newUser = {
       id: uuid(),
       avatar: randomUser.picture.large,
@@ -124,14 +125,22 @@ function App() {
   }, [])
 
   useEffect(() => {
+
+    //is there a way to only fire this axios when the submit button is hit?? not everytime there is a input change??
+    
     axios
       .get("https://randomuser.me/api/")
       .then((res) => setRandomUser(res.data.results[0]))
 
     formSchema.isValid(formValues).then((valid) => {
       setDisabled(!valid)
+      
     })
   }, [formValues])
+
+  useEffect(() => {
+    
+  })
 
   return (
     <StyledApp className="App">
