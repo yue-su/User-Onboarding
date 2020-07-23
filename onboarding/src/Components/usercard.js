@@ -8,6 +8,7 @@ const StyledUserCard = styled.div`
   margin: 1rem;
   background-color: #f2f7f5;
   padding: 2rem;
+  border-radius: 15px;
 
   &:hover {
     background-color: #faae2b;

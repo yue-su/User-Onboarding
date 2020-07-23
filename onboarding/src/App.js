@@ -12,11 +12,18 @@ const StyledApp = styled.div`
   background-color: #f2f7f5;
   color: #475d5b;
 
+  h1 {
+    padding: 2rem;
+  }
+
   .form {
     background-color: #f2f7f5;
     min-height: 400px;
     width: 500px;
-    margin: 0 auto;
+    margin: 1rem auto;
+    border: 3px solid #00473e;
+    border-radius: 15px;
+    padding: 1rem;
   }
 
   .section {
