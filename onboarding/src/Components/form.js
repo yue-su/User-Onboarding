@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Input, Button, Checkbox, Message } from "semantic-ui-react"
 
 const StyledForm = styled.form`
   display: flex;
@@ -30,20 +31,21 @@ const Form = (props) => {
   return (
     <StyledForm onSubmit={submitHandler}>
       <div className="field">
-        <div className="error">
+        <Message attached>
+          Welcome onboard!
           {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
           <div>{errors.first_name}</div>
           <div>{errors.last_name}</div>
           <div>{errors.email}</div>
           <div>{errors.password}</div>
           <div>{errors.terms}</div>
-        </div>
+        </Message>
       </div>
       <div className="field">
         <label className="label">
           First Name
           <div className="control">
-            <input
+            <Input
               className="input"
               name="first_name"
               value={values.first_name}
@@ -58,7 +60,7 @@ const Form = (props) => {
         <label className="label">
           Last Name
           <div className="control">
-            <input
+            <Input
               className="input"
               name="last_name"
               value={values.last_name}
@@ -73,7 +75,7 @@ const Form = (props) => {
         <label className="label">
           Email
           <div className="control">
-            <input
+            <Input
               className="input"
               name="email"
               value={values.email}
@@ -89,7 +91,7 @@ const Form = (props) => {
         <label className="label">
           Password
           <div className="control">
-            <input
+            <Input
               className="input"
               name="password"
               value={values.password}
@@ -104,7 +106,7 @@ const Form = (props) => {
       <div className="field">
         <div className="control">
           <label className="label">
-            <input
+            <Checkbox
               type="checkbox"
               name="terms"
               onChange={changeHandler}
@@ -118,14 +120,10 @@ const Form = (props) => {
       </div>
       <div className="field is-grouped">
         <div className="control">
-          <button disabled={disabled} className="button is-link">
-            Submit
-          </button>
+          <Button disabled={disabled}>Submit</Button>
         </div>
         <div className="control">
-          <button onClick={cancelHandler} className="button is-link is-light">
-            Cancel
-          </button>
+          <Button onClick={cancelHandler}>Cancel</Button>
         </div>
       </div>
     </StyledForm>

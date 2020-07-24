@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Image, Button } from "semantic-ui-react"
 
 const StyledUserCard = styled.div`
   text-align: center;
@@ -33,7 +34,12 @@ const UserCard = (props) => {
     <StyledUserCard className="card">
       <div className="card-image">
         <figure className="image is-128x128">
-          <img src={user.avatar} alt="Placeholder" className="is-rounded" />
+          <Image
+            src={user.avatar}
+            alt="Placeholder"
+            className="is-rounded"
+            circular
+          />
         </figure>
       </div>
       <div className="card-content">
@@ -42,9 +48,9 @@ const UserCard = (props) => {
         </p>
         <p className="subtitle is-6">{user.email}</p>
       </div>
-      <button className="button" onClick={clickHandler}>
+      <Button onClick={clickHandler} color="yellow">
         Post
-      </button>
+      </Button>
     </StyledUserCard>
   )
 }

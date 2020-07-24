@@ -1,4 +1,16 @@
 const URL = "http://localhost:3001/"
+
+const emptyForm = () => {
+  cy.get('input[name="first_name"]').should("have.value", "")
+  cy.get('input[name="last_name"]').should("have.value", "")
+  cy.get('input[name="email"]').should("have.value", "")
+  cy.get('input[name="password"]').should("have.value", "")
+  cy.get('input[name="terms"]').should("not.be.checked")
+
+  cy.contains("Submit").should("be.disabled")
+}
+
+
 describe("Page loading ok", () => {
   it("can navigate to the site", () => {
     // this is setup for the actual test
@@ -40,15 +52,7 @@ describe("create a new user with legitimate data", () => {
 
   it("can submit and clear the form", () => {
     cy.contains("Submit").click()
-
-    cy.get('input[name="first_name"]').should("have.value", "")
-    cy.get('input[name="last_name"]').should("have.value", "")
-    cy.get('input[name="email"]').should("have.value", "")
-    cy.get('input[name="password"]').should("have.value", "")
-    cy.get('input[name="terms"]').should("not.be.checked")
-
-    cy.contains("Submit").should("be.disabled")
-
+    emptyForm()
     cy.contains("Michael Wong")
     cy.contains("michael.wong@abc.com")
   })
@@ -72,9 +76,6 @@ describe("create a new user with illigitimate data", () => {
 describe("Cancel button should clear the form", () => {
   it("can clear the form", () => {
     cy.contains("Cancel").click()
-    cy.get('input[name="first_name"]').should("have.value", "")
-    cy.get('input[name="last_name"]').should("have.value", "")
-    cy.get('input[name="email"]').should("have.value", "")
-    cy.get('input[name="password"]').should("have.value", "")
+    emptyForm()
   })
 })

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import "./App.css"
 import UserCard from "./Components/usercard"
 import Form from "./Components/form"
 import styled from "styled-components"
@@ -125,7 +124,6 @@ function App() {
 
   useEffect(() => {
     //is there a way to only fire this axios when the submit button is hit?? not everytime there is a input change??
-
     axios
       .get("https://randomuser.me/api/")
       .then((res) => setRandomUser(res.data.results[0]))
